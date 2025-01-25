@@ -589,7 +589,7 @@ var _default = {
                   _options$ethereum6$pr !== void 0 &&
                   _options$ethereum6$pr.url
                 ) {
-                  provider = new ethers.providers.getDefaultProvider({
+                  provider = new ethers.providers.JsonRpcProvider({
                     url: options?.ethereum?.provider?.url,
                     skipFetchSetup: true,
                   });

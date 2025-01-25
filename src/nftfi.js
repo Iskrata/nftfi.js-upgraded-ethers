@@ -121,12 +121,18 @@ export default {
     let provider = null;
     if (options?.ethereum?.provider?.url) {
       provider = new ethers.providers.getDefaultProvider(
-        options?.ethereum?.provider?.url
+        options?.ethereum?.provider?.url,
+        {
+          skipFetchSetup: true,
+        }
       );
     }
     if (options?.ethereum?.web3?.provider) {
       provider = new ethers.providers.Web3Provider(
-        options?.ethereum?.web3?.provider
+        options?.ethereum?.web3?.provider,
+        {
+          skipFetchSetup: true,
+        }
       );
     }
     if (options?.ethereum?.ethers?.signer?.jsonRpc) {

@@ -18,14 +18,22 @@ class ContractFactory {
   create(options) {
     let ethersContract;
     if (this.#signer) {
-      ethersContract = new this.#ethers.Contract(options?.address, options?.abi, this.#signer);
+      ethersContract = new this.#ethers.Contract(
+        options?.address,
+        options?.abi,
+        this.#signer
+      );
     } else {
       this.#assertion.hasProvider();
-      ethersContract = new this.#ethers.Contract(options?.address, options?.abi, this.#provider);
+      ethersContract = new this.#ethers.Contract(
+        options?.address,
+        options?.abi,
+        this.#provider
+      );
     }
     const contract = new this.#Contract({
       account: this.#account,
-      contract: ethersContract
+      contract: ethersContract,
     });
     return contract;
   }

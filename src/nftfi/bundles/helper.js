@@ -14,7 +14,7 @@ class BundlesHelper {
     if (!this.#registryContract) {
       this.#registryContract = this.#contractFactory.create({
         address: this.#config.registry.address,
-        abi: this.#config.registry.abi
+        abi: this.#config.registry.abi,
       });
     }
     return this.#registryContract;
@@ -39,7 +39,8 @@ class BundlesHelper {
   // Check if the wrapper is permitted
   _isWrapperPermitted(options) {
     const { permit } = options;
-    const isPermitted = permit === this.#ethers.constants.HashZero ? false : true;
+    const isPermitted =
+      permit === this.#ethers.constants.HashZero ? false : true;
     return isPermitted;
   }
 
@@ -56,8 +57,8 @@ class BundlesHelper {
 
   async getPermit(options) {
     const permit = await this._registryContract.call({
-      function: 'getNFTPermit',
-      args: [options?.element?.token?.address]
+      function: "getNFTPermit",
+      args: [options?.element?.token?.address],
     });
     const isPermitted = this._isWrapperPermitted({ permit });
     const isSupported = this._isWrapperSupported({ permit });
@@ -65,7 +66,7 @@ class BundlesHelper {
     return {
       isPermitted,
       isSupported,
-      isSafeTransferable
+      isSafeTransferable,
     };
   }
 }

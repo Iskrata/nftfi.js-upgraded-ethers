@@ -14,19 +14,19 @@ class OffersSignatures {
       this.#ethers.utils.arrayify(
         this.#ethers.utils.solidityKeccak256(
           [
-            'address',
-            'uint256',
-            'uint256',
-            'address',
-            'uint256',
-            'uint32',
-            'bool',
-            'uint256',
-            'address',
-            'uint256',
-            'uint256',
-            'bytes32',
-            'uint256'
+            "address",
+            "uint256",
+            "uint256",
+            "address",
+            "uint256",
+            "uint32",
+            "bool",
+            "uint256",
+            "address",
+            "uint256",
+            "uint256",
+            "bytes32",
+            "uint256",
           ],
           [
             options.offer.terms.loan.currency,
@@ -41,7 +41,7 @@ class OffersSignatures {
             options.offer.lender.nonce,
             options.offer.terms.loan.expiry,
             this.#ethers.utils.formatBytes32String(options.offer.type),
-            this.#config.chainId
+            this.#config.chainId,
           ]
         )
       )
@@ -58,21 +58,21 @@ class OffersSignatures {
       this.#ethers.utils.arrayify(
         this.#ethers.utils.solidityKeccak256(
           [
-            'address',
-            'uint256',
-            'uint256',
-            'address',
-            'uint256',
-            'uint32',
-            'bool',
-            'uint256',
-            'uint256',
-            'uint256',
-            'address',
-            'uint256',
-            'uint256',
-            'bytes32',
-            'uint256'
+            "address",
+            "uint256",
+            "uint256",
+            "address",
+            "uint256",
+            "uint32",
+            "bool",
+            "uint256",
+            "uint256",
+            "uint256",
+            "address",
+            "uint256",
+            "uint256",
+            "bytes32",
+            "uint256",
           ],
           [
             options.offer.terms.loan.currency,
@@ -89,7 +89,7 @@ class OffersSignatures {
             options.offer.lender.nonce,
             options.offer.terms.loan.expiry,
             this.#ethers.utils.formatBytes32String(options.offer.type),
-            this.#config.chainId
+            this.#config.chainId,
           ]
         )
       )
@@ -100,16 +100,16 @@ class OffersSignatures {
   async getV3RenegotiationOfferSignature(options) {
     const hash = this.#ethers.utils.solidityKeccak256(
       [
-        'uint256', // loanId
-        'uint32', // newLoanDuration
-        'bool', // isProRata
-        'uint256', // newMaximumRepaymentAmount
-        'uint256', // renegotiationFee
-        'address', // lender
-        'uint256', // lenderNonce
-        'uint256', // expiry
-        'address', // contractAddress
-        'uint256' // chainId
+        "uint256", // loanId
+        "uint32", // newLoanDuration
+        "bool", // isProRata
+        "uint256", // newMaximumRepaymentAmount
+        "uint256", // renegotiationFee
+        "address", // lender
+        "uint256", // lenderNonce
+        "uint256", // expiry
+        "address", // contractAddress
+        "uint256", // chainId
       ],
       [
         options.loanId,
@@ -121,7 +121,7 @@ class OffersSignatures {
         options.lenderNonce,
         options.expiry,
         options.contractAddress,
-        options.chainId
+        options.chainId,
       ]
     );
     const signature = this.#account.sign(this.#ethers.utils.arrayify(hash));
@@ -131,15 +131,15 @@ class OffersSignatures {
   async getV23RenegotiationOfferSignature(options) {
     const hash = this.#ethers.utils.solidityKeccak256(
       [
-        'uint256', // loanId
-        'uint32', // newLoanDuration
-        'uint256', // newMaximumRepaymentAmount
-        'uint256', // renegotiationFee
-        'address', // lender
-        'uint256', // lenderNonce
-        'uint256', // expiry
-        'address', // contractAddress
-        'uint256' // chainId
+        "uint256", // loanId
+        "uint32", // newLoanDuration
+        "uint256", // newMaximumRepaymentAmount
+        "uint256", // renegotiationFee
+        "address", // lender
+        "uint256", // lenderNonce
+        "uint256", // expiry
+        "address", // contractAddress
+        "uint256", // chainId
       ],
       [
         options.loanId,
@@ -150,7 +150,7 @@ class OffersSignatures {
         options.lenderNonce,
         options.expiry,
         options.contractAddress,
-        options.chainId
+        options.chainId,
       ]
     );
     const signature = this.#account.sign(this.#ethers.utils.arrayify(hash));
